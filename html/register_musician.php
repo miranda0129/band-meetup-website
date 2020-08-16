@@ -1,4 +1,4 @@
-<?php
+<?php //called if musician form is filled out on registeration
 require_once 'login.php';
 
 $connect = new mysqli( $hn, $un, $pw, $db);
@@ -10,6 +10,7 @@ if(isset($_REQUEST['musician_email'])   &&
     isset($_REQUEST['city'])   &&
     isset($_REQUEST['genre']))
 {
+    //get form values
     $email = $_REQUEST['musician_email'];
     $password = $_REQUEST['musician_password'];
     $uname = $_REQUEST['uname'];
@@ -26,21 +27,20 @@ if(isset($_REQUEST['musician_email'])   &&
     $full_time = 1;
     }
 
+    //salt and hash passwords
     $salt1 = "qm&h*";
     $salt2 = "pg!@";
     $token = hash('ripemd128', "$salt1$password$salt2");
     
+    //insert user into database
     $query = "INSERT INTO users VALUES" . "('$email', '$token', 'musician')";
     $result = $connect->query($query);
     if(!$result) die($connect->error);
     
-   $query = "INSERT INTO musicians VALUES" . "('$email', '$uname', '$instrument', '$genre', '$city', NULL, $one_time, $full_time)";
+    //insert musician into database
+    $query = "INSERT INTO musicians VALUES" . "('$email', '$uname', '$instrument', '$genre', '$city', NULL, $one_time, $full_time)";
     $result = $connect->query($query);
     if(!$result) die($connect->error);
-    
-    echo "here".$password;
-    echo  $_REQUEST['musician_password'];
-    echo $token;
     
     header("Location: login.html");
 }

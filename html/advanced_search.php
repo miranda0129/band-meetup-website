@@ -5,7 +5,7 @@ $connect = new mysqli( $hn, $un, $pw,$db);
 if($connect->connect_error) die($connect->connect_error);
 
 $string;
-
+//if value is not empty add query to string
 if($_REQUEST['instrument'] != ""){
 $string .= "instrument='" .$_REQUEST['instrument'] ."'&&"; 
 }
@@ -25,12 +25,13 @@ $string .= "one_time=1";
 if($_REQUEST['time'] == "full_time"){
 $string .= "full_time=1";
 }
-
+//query musician table to select * musicians where critera meet
 $query = "SELECT * FROM musicians WHERE $string";
 $result = $connect->query($query);
 if(!$result) die($connect->error);
 $rows = $result->num_rows;
 
+//open and write to json file
 $file = fopen("../js/search_results.json", "w") or die("Unable to open file");
 $txt = '[';
 for($j = 0; $j < $rows; ++$j){

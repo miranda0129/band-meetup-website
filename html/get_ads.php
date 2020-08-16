@@ -4,6 +4,7 @@ require_once 'login.php';
 $connect = new mysqli( $hn, $un, $pw,$db);
 if($connect->connect_error) die($connect->connect_error);
 
+//if musician query for ads where they qualify
 if($_SESSION['type'] == 'musician'){
     $str;
     $str .= '(instrument ="' .$_SESSION['instrument'] . '" || instrument IS NULL) &&';
@@ -13,6 +14,7 @@ if($_SESSION['type'] == 'musician'){
     $query = "SELECT * FROM ads WHERE " . $str;
 }
 
+//if band query for ads where ads at band_name == session band
 if($_SESSION['type'] == 'band'){
     $query = 'SELECT * FROM ads WHERE band ="' . $_SESSION['band'] . '"';
 }
@@ -21,10 +23,12 @@ $result = $connect->query($query);
 if(!$result) die($connect->error);
 $rows = $result->num_rows;
 
+//open and write results to json file
 $file = fopen("../js/ad_list.json", "w") or die("Unable to open file");
 $txt = '[';
 for($j = 0; $j < $rows; ++$j){
     $result->data_seek($j);
+    //save band for email query 
     $band = $result->fetch_assoc()['band'];
     $txt .= '{ "band" : "'. $band . '", ';
     $result->data_seek($j);
@@ -40,6 +44,7 @@ for($j = 0; $j < $rows; ++$j){
     $result->data_seek($j);
     $txt .= ' "message" :"' . $result->fetch_assoc()['message'] . '",';
     
+    //query bands table to get email for contact functionality
     $query_email = 'SELECT * FROM bands WHERE band_name ="' . $band . '"';
     $result_email = $connect->query($query_email);
     if(!$result_email) die($connect->error);

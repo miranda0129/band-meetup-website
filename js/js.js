@@ -1,7 +1,7 @@
-function redirectToLogin(){
-    window.location.replace("login.html");
-}
+//used when user not logged in
+function redirectToLogin(){ window.location.replace("login.html"); }
 
+//used for musician search, show results- open and prep json file
 function load_search_results(){
     var searchResults = new XMLHttpRequest();
     searchResults.open('GET', '../js/search_results.json');
@@ -13,6 +13,7 @@ function load_search_results(){
     searchResults.send();
 }
 
+//used for musician search, show results - write parsed json data to html
 function render_search_HTML(data){
     var container = document.getElementById("search_results");
     var htmlstr = "";
@@ -23,12 +24,8 @@ function render_search_HTML(data){
         htmlstr += 'in the genre ' + data[i].genre;
         htmlstr += 'and is located in ' + data[i].city;
         
-        if(data[i].one_time == 1){
-            htmlstr += '<p>is available for one time gigs</p>';
-        }
-        if(data[i].full_time == 1){
-            htmlstr += '<p>is available to be a full time band member</p>';
-        }
+        if(data[i].one_time == 1){ htmlstr += '<p>is available for one time gigs</p>'; }
+        if(data[i].full_time == 1){ htmlstr += '<p>is available to be a full time band member</p>'; }
         
         
         htmlstr += '<a href="mailto:' + data[i].email + '"> Contact </a>';
@@ -37,6 +34,7 @@ function render_search_HTML(data){
     container.insertAdjacentHTML('beforeend', htmlstr);
 }
 
+//used for profile (musician & band) to show relavant ads - open and prep json file
 function load_ads(){
     var ad_list = new XMLHttpRequest();
     ad_list.open('GET', '../js/ad_list.json');
@@ -48,36 +46,26 @@ function load_ads(){
     ad_list.send();
 }
 
+//used for profile (musician & band) to show relavant ads - write parsed json to html
 function render_ads_HTML(data){
     var container = document.getElementById("ad_list");
     var htmlstr = "";
     for(i=0; i<data.length; i++){
     htmlstr += '<div class="search-result">'
         htmlstr += '<p>' + data[i].band + '</p>';
-        if(data[i].instrument !== ""){
-            htmlstr += '<p> is looking for someone who plays ' + data[i].instrument + '</p>';
-        }
-        if(data[i].genre !== ""){
-        htmlstr += '<p> in the genre ' + data[i].genre + '</p>';
-        }
-        if(data[i].city !== ""){
-        htmlstr += '<p>who is located in ' + data[i].city + '</p>';
-        }
-        if(data[i].one_time == 1){
-            htmlstr += '<p>who is available to play a one time gig </p>';
-        }
-        if(data[i].full_time){
-            htmlstr+= 'who is available to be a full time band member</p>';
-        }
-        if(data[i].message !== ""){
-        htmlstr += '<p> The band also included a personalized message: </p><p>' + data[i].message + '</p>';
-        }
+        if(data[i].instrument !== ""){ htmlstr += '<p> is looking for someone who plays ' + data[i].instrument + '</p>'; }
+        if(data[i].genre !== ""){ htmlstr += '<p> in the genre ' + data[i].genre + '</p>'; }
+        if(data[i].city !== ""){ htmlstr += '<p>who is located in ' + data[i].city + '</p>'; }
+        if(data[i].one_time == 1){ htmlstr += '<p>who is available to play a one time gig </p>'; }
+        if(data[i].full_time){ htmlstr+= 'who is available to be a full time band member</p>'; }
+        if(data[i].message !== ""){ htmlstr += '<p> The band also included a personalized message: </p><p>' + data[i].message + '</p>'; }
         htmlstr += '<a href="mailto:' + data[i].email + '"> Contact </a>';
         htmlstr += '</div>';
     }
     container.insertAdjacentHTML('beforeend', htmlstr);
 }
 
+//displays band members on band profile - open and prep json file
 function load_band_members(){
     var band_members = new XMLHttpRequest();
     band_members.open('GET', '../js/band_members.json');
@@ -89,14 +77,17 @@ function load_band_members(){
     band_members.send();
 }
 
+//displays band members on band profile - write parsed json to html
 function render_band_members_HTML(data){
     var container = document.getElementById("band_members");
     var htmlstr = "";
+    //if band has no members write message
     if(data.length === 0){
         htmlstr += '<div>';
         htmlstr += '<p>There are no registered band members under your band profile.  Add a registered musician as a band member.</p>';
         htmlstr += '</div>';
     }
+    //if band has mambers display members
     else{
         for(i=0; i<data.length; i++){
             htmlstr += '<div>'

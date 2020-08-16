@@ -5,6 +5,7 @@ include 'continue.php';
 $connect = new mysqli( $hn, $un, $pw,$db);
 if($connect->connect_error) die($connect->connect_error);
 
+//if value is not empty update table & session vairiable 
 if($_REQUEST['instrument'] != ""){
 $query = 'UPDATE musicians SET instrument = "' . $_REQUEST['instrument'] . '" WHERE email="' . $_SESSION['email'] . '"';
 $result = $connect->query($query);

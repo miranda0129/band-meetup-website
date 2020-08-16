@@ -28,9 +28,9 @@ body, html {
 
 .guitar-background{
     background-image: url("../images/guitar-head.png");
-    height: 150%;
+
     background-position: right 22% top;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     padding: none;
 }
 
