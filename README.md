@@ -1,5 +1,5 @@
-#Ensable
-a websites that helps bands who are in need of new members find musicians who fit their criteria 
+# Ensable
+*a websites that helps bands who are in need of new members find musicians who fit their criteria*
 
 This website was created as a final project in my first serious web development course
 I utlized my new more advaned knowledge with Databases, MySql, php, Javascript and Bootstrap to create a fully flushed site.
