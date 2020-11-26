@@ -7,16 +7,17 @@ This website was created as a final project in my first serious web development 
 I utlized my new more advaned knowledge with Databases, MySql, php, Javascript and Bootstrap to create a fully flushed out site.
 From conception to final product, this was my first project of this scale.
 
-<img src="./readme_photos/index.png" alt="Ensamble's landing page">
+<img src='./readme_photos/index.png' alt="Ensamble's landing page" width='75%'>
 
 My original UI design was much more ambitious and clean (originally designed in XD), but was modified as I came across inevitable first timer roadblocks where I had to adapt (as I implimented).
 These misteps were critical in aiding me learn how front end designs are layed out vs how they are built, and how the two aspects come together. 
 
-<img src="./readme_photos/search.png" alt="Search filters">
 You can search the site to find musicians who fit certain critera.
+<img src='./readme_photos/search.png' alt='Search filters' width='75%'>
 
-<img src="./readme_photos/signup.png" alt="Signup page">
+<img src='./readme_photos/signup.png' alt='Signup page' width='75%'>
 You can sign up as a solo musician or band. Bands post ads that notify musicians who meet the criteria they are looking for. 
+
 
 There is no SEO due simply to scope, time constraints, and skill level but a serious reiteration could include results ranked on importance/relativity.
 The categories are narrowed down to a small list drop down boxes mostly for proof of concept reasons.
