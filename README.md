@@ -4,14 +4,14 @@
 [check out the live site](http://ransomm.myweb.cs.uwindsor.ca/60334/ensamble/html/index.html)
 
 ### Overview
-This website was created as a final project in my web development course
-I utlized my new more advaned knowledge with Databases, MySql, php, Javascript and Bootstrap to create a fully flushed out site.
+This website was created as a final project in my web development course.
+I utlized advaned knowledge with Databases, MySql, PHP, Javascript and Bootstrap to create a fully flushed out site.
 From conception to final product, this was my first project of this scale.
 
 <img src='./readme_photos/index.png' alt="Ensamble's landing page" width='75%'>
 
 ### UI design
-The original UI design was much more ambitious and clean (originally designed in XD), but was modified as I came across inevitable first timer roadblocks where I had to adapt (as I implimented).
+The original UI design was much more ambitious and clean (originally designed in Adobe XD), but was modified as I came across inevitable first timer roadblocks where I had to adapt (as I implimented).
 These misteps were critical in aiding me learn how front end designs are layed out vs how they are built, and how the two aspects come together. 
 
 ## Functionality
