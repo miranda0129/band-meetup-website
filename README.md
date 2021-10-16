@@ -4,7 +4,7 @@
 [check out the live site](http://ransomm.myweb.cs.uwindsor.ca/60334/ensamble/html/index.html)
 
 ### Overview
-This website was created as a final project in my first serious web development course
+This website was created as a final project in my web development course
 I utlized my new more advaned knowledge with Databases, MySql, php, Javascript and Bootstrap to create a fully flushed out site.
 From conception to final product, this was my first project of this scale.
 
