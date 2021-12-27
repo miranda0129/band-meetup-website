@@ -1,4 +1,4 @@
-# Ensable
+# Ensamble
 *a websites that helps bands who are in need of new members find musicians who fit their criteria*
 
 [check out the live site](http://ransomm.myweb.cs.uwindsor.ca/60334/ensamble/html/index.html)
